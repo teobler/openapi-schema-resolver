@@ -7,13 +7,28 @@
     "test": "jest",
     "build": "rm -rf dist && tsc"
   },
+  "files": [
+    "dist",
+    "bin",
+    "lib",
+    "module",
+    "src",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
-    "url": "empty"
+    "url": "git@github.com:teobler/openapi-schema-resolver.git"
+  },
+  "homepage": "https://github.com/teobler/openapi-schema-resolver#readme",
+  "bugs": {
+    "url": "https://github.com/teobler/openapi-schema-resolver/issues"
   },
   "keywords": [
-    "openAPI",
-    "typescript"
+    "swagger",
+    "schema",
+    "OpenAPI",
+    "code generator",
+    "TypeScript"
   ],
   "author": "teobler",
   "license": "MIT",
