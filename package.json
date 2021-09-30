@@ -1,0 +1,50 @@
+{
+  "name": "@openapi-integration/schema-resolver",
+  "version": "0.1.0",
+  "description": "A tool for resolving openAPI json schema to typescript type definition.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rm -rf dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "empty"
+  },
+  "keywords": [
+    "openAPI",
+    "typescript"
+  ],
+  "author": "teobler",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^27.2.4",
+    "babel-plugin-pure-calls-annotation": "^0.4.2",
+    "jest": "^27.2.4",
+    "prettier": "^2.4.1",
+    "rollup": "^2.57.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "testRegex": ".*/__tests__/.+\\.(generator|test|spec)\\.(ts|tsx)$",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/__types__/**",
+      "!src/__tests__/**",
+      "!src/index.ts"
+    ],
+    "transform": {
+      "^.+\\.ts?$": "ts-jest",
+      "^.+\\.tsx?$": "ts-jest"
+    }
+  }
+}
