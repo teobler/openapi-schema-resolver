@@ -9,6 +9,10 @@ describe("PathResolver", () => {
   it("should get correct content type for different operation id", () => {
     expect(PathResolver.of((openAPI as any).paths).resolve().contentType).toEqual(expectedContentType);
   });
+
+  it("should get correct content type for different operation id", () => {
+    expect(PathResolver.of((openAPI as any).paths).resolve().extraDefinitions).toEqual(expectedExtraDefinitions);
+  });
 });
 
 const expectedPathResolvedData = [
@@ -167,3 +171,10 @@ const expectedContentType = {
   uploadAttachmentUsingPOST: "multipart/form-data",
   uploadDocumentUsingPOST: "multipart/form-data",
 };
+
+const expectedExtraDefinitions = {
+  "FromFrom#EnumTypeSuffix": [
+    "AAA",
+    "BBB"
+  ]
+}
