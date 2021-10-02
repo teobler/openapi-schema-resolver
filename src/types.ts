@@ -1,4 +1,4 @@
-import { Schema } from "@openapi-integration/openapi-schema";
+import { Parameter, Schema } from "@openapi-integration/openapi-schema";
 
 export interface IResolvedPath {
   url: string;
@@ -12,6 +12,13 @@ export interface IResolvedPath {
   queryParams: string[];
   bodyParams: string[];
   formDataParams: string[];
+}
+
+export interface IParameters {
+  pathParams: Parameter[];
+  queryParams: Parameter[];
+  bodyParams: Parameter[];
+  formDataParams: Parameter[];
 }
 
 export type TDictionary<T> = { [key: string]: T };
