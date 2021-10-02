@@ -31,6 +31,7 @@ export class SchemaResolver {
 
     if (schema.enum) {
       const enumKey = this.getEnumName(key!, parentKey);
+      // TODO: should not do this operation here
       // Implicit operation!: Assign enum array definition to results
       results[enumKey] = schema.enum;
 

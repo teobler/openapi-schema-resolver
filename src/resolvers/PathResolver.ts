@@ -14,7 +14,6 @@ import { HTTP_METHODS, SLASH } from "../constants";
 import { IParameters, IResolvedPath } from "../types";
 import { isRequestBody, isSchema } from "../utils/specifications";
 
-// TODO: Should handle `deprecated` and `security` in Operation?
 export class PathResolver {
   resolvedPaths: IResolvedPath[] = [];
   extraDefinitions = {};
@@ -55,7 +54,6 @@ export class PathResolver {
 
   isPathParam = (str: string) => str.startsWith("{");
 
-  // TODO: handle the case when v.parameters = Reference
   resolveOperation = (operation: Operation) => {
     const pickParamsByType = this.pickParams(operation.parameters as Parameter[]);
     const headerParams = pickParamsByType("header");
@@ -126,7 +124,6 @@ export class PathResolver {
       {},
     );
 
-  // TODO: handle other params here?
   getFormDataParamsTypes = (formDataParams: any[]) => {
     return formDataParams.reduce((results, param) => {
       if (param.schema) {

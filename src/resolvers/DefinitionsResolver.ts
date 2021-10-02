@@ -6,11 +6,6 @@ import { generateEnums } from "../utils/generators";
 import { addPrefixForInterface, toCapitalCase, toTypes } from "../utils/formatters";
 import { ENUM_SUFFIX } from "../constants";
 
-// TODO: 1. Handle required params.
-// TODO: handle `in: fromData`
-// TODO: handle `in schema`
-// TODO: 确认不同 endpoint 是否都会生成 openAPI
-
 export class DefinitionsResolver {
   resolvedDefinitions: any;
 
