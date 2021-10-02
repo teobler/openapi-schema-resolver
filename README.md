@@ -104,7 +104,6 @@ SchemaResolver.of({
   parentKey,
 })
   .resolve()
-  .resolveNullable()
   .getSchemaType();
 ```
 

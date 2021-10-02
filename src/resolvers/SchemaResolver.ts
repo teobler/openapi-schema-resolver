@@ -21,11 +21,13 @@ export class SchemaResolver {
     const advancedType = this.resolveRef(schema.$ref, type || schema.type);
     if (schema.$ref) {
       this.schemaType = advancedType;
+      this.resolveNullable();
       return this;
     }
 
     if (schema.items) {
       this.schemaType = this.resolveItems(schema.items, schema.type, key, parentKey);
+      this.resolveNullable();
       return this;
     }
 
@@ -36,30 +38,37 @@ export class SchemaResolver {
       results[enumKey] = schema.enum;
 
       this.schemaType = enumKey;
+      this.resolveNullable();
       return this;
     }
 
     if (schema.type === "object") {
       if (schema.properties) {
         this.schemaType = this.resolveProperties(schema.properties, schema.required, parentKey);
+        this.resolveNullable();
         return this;
       }
 
       if (schema.title) {
         this.schemaType = schema.type;
+        this.resolveNullable();
         return this;
       }
 
       this.schemaType = "{[key:string]:any}";
+      this.resolveNullable();
       return this;
     }
 
     if (schema.type === "string" && schema.format === "binary") {
       this.schemaType = "FormData";
+      this.resolveNullable();
       return this;
     }
 
     this.schemaType = this.getBasicType(schema.type, advancedType);
+    this.resolveNullable();
+
     return this;
   };
 
@@ -129,14 +138,12 @@ export class SchemaResolver {
       return map(items, (item) =>
         SchemaResolver.of({ results: this.inputs.results, schema: item as Schema, key, parentKey })
           .resolve()
-          .resolveNullable()
           .getSchemaType(),
       );
     }
 
     return SchemaResolver.of({ results: this.inputs.results, schema: items as Schema, key, parentKey })
       .resolve(type)
-      .resolveNullable()
       .getSchemaType();
   };
 
@@ -156,7 +163,6 @@ export class SchemaResolver {
           parentKey,
         })
           .resolve()
-          .resolveNullable()
           .getSchemaType(),
       }),
       {},
