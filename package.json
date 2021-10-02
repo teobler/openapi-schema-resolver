@@ -4,7 +4,7 @@
   "description": "A tool for resolving openAPI json schema to typescript type definition.",
   "main": "lib/index.js",
   "module": "module/index.js",
-  "types": "src/index.ts",
+  "types": "src/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "rm -rf dist && tsc",

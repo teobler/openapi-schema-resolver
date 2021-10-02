@@ -117,7 +117,12 @@ export class SchemaResolver {
     return list[list.length - 1];
   };
 
-  resolveItems = (items?: Schema | Schema[], type?: string, key?: string, parentKey?: string): any => {
+  resolveItems = (
+    items?: Schema | Schema[],
+    type?: string,
+    key?: string,
+    parentKey?: string,
+  ): Record<string, any> | string => {
     if (!items) {
       return {};
     }

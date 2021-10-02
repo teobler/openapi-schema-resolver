@@ -1,17 +1,24 @@
 import { Parameter, Schema } from "@openapi-integration/openapi-schema";
 
-export interface IResolvedPath {
-  url: string;
-  method: string;
-  TResp: any;
-  TReq: any;
-  THeader: Record<string, any>;
-  requestBody?: string;
-  operationId?: string;
+export interface IResolvedParams {
   pathParams: string[];
   queryParams: string[];
   bodyParams: string[];
   formDataParams: string[];
+}
+
+export interface IResolvedPath extends IResolvedParams {
+  THeader: Record<string, any>;
+  TReq: Record<string, any> | undefined;
+  TResp: Record<string, any> | string;
+  bodyParams: string[];
+  pathParams: string[];
+  queryParams: string[];
+  formDataParams: string[];
+  method: string;
+  operationId?: string;
+  requestBody?: string;
+  url: string;
 }
 
 export interface IParameters {
