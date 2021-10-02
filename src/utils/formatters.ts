@@ -1,5 +1,4 @@
 import { camelCase, forEach, indexOf, isEmpty, map, pickBy, replace, trimEnd } from "lodash-es";
-import prettier from "prettier";
 import { isObject } from "./specifications";
 import { ENUM_SUFFIX, ERROR_MESSAGES } from "../constants";
 
@@ -27,14 +26,6 @@ export const arrayToObject = (arr: any[] = []) => {
 
   return obj;
 };
-
-export const prettifyCode = (code: string) =>
-  prettier.format(code, {
-    printWidth: 120,
-    trailingComma: "all",
-    arrowParens: "always",
-    parser: "typescript",
-  });
 
 export const toTypes = (definitions: Record<string, any> | string) => {
   if (isEmpty(definitions)) {
