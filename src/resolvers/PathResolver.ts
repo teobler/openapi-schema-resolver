@@ -9,7 +9,7 @@ import {
   Schema,
 } from "@openapi-integration/openapi-schema";
 import { SchemaResolver } from "./SchemaResolver";
-import { assign, chain, Dictionary, filter, get, isEmpty, map, pick, reduce } from "lodash";
+import { assign, filter, get, isEmpty, map, pick, reduce } from "lodash-es";
 import { HTTP_METHODS, SLASH } from "../constants";
 import { IParameters, IResolvedPath } from "../types";
 import { isRequestBody, isSchema } from "../utils/specifications";
@@ -40,16 +40,15 @@ export class PathResolver {
     return Object.keys(operations).map((httpMethod) => ({
       url: this.getRequestURL(pathName),
       method: httpMethod,
-      ...this.resolveOperation((operations as Dictionary<any>)[httpMethod]),
+      ...this.resolveOperation((operations as Record<string, any>)[httpMethod]),
     }));
   }
 
   getRequestURL = (pathName: string) => {
-    return chain(pathName)
+    return pathName
       .split(SLASH)
       .map((p) => (this.isPathParam(p) ? `$${p}` : p))
-      .join(SLASH)
-      .value();
+      .join(SLASH);
   };
 
   isPathParam = (str: string) => str.startsWith("{");
