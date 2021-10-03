@@ -1,6 +1,6 @@
 {
   "name": "@openapi-integration/schema-resolver",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A tool for resolving openAPI json schema to typescript type definition.",
   "main": "lib/index.js",
   "module": "module/index.js",
