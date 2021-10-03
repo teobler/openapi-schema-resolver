@@ -4,7 +4,7 @@
   "description": "A tool for resolving openAPI json schema to typescript type definition.",
   "main": "lib/index.js",
   "module": "module/index.js",
-  "types": "src/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "rm -rf dist && tsc",
@@ -50,6 +50,7 @@
     "prettier": "^2.4.1",
     "rollup": "^2.57.0",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-dts": "^4.0.0",
     "rollup-plugin-typescript": "^1.0.1",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
