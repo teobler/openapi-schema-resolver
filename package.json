@@ -13,11 +13,11 @@
   },
   "files": [
     "dist",
-    "bin",
     "lib",
     "module",
-    "src",
-    "README.md"
+    "package.json",
+    "README.md",
+    "LICENSE"
   ],
   "repository": {
     "type": "git",
